@@ -9,8 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-
+   
    @ObservedResults(Water.self, filter: isToday()) var waterList
+   
+   @State private var showingSheet = false
    
    var goal: Int = 2000
    
@@ -28,7 +30,6 @@ struct ContentView: View {
    var body: some View {
       NavigationView {
          VStack {
-            
             // show current consumption
             VStack {
                HStack (spacing:0) {
@@ -36,10 +37,7 @@ struct ContentView: View {
                   Text("ml").font(.system(size: 64, weight: .light))
                }
                Text(valueForToday() > goal ? "Tagesziel erreicht (+\(valueForToday()-goal)ml)" : "noch \(goal - valueForToday())ml")
-            }.padding()
-            
-            // show navigation
-            VStack {
+               
                HStack {
                   RoundButton(text: "100", action: {
                      self.add(amount: 100)
@@ -51,11 +49,24 @@ struct ContentView: View {
                      self.add(amount: 500)
                   })
                }
+               
             }
+            
             TodayView()
          }
+         .navigationBarItems(
+            leading:
+               Image(systemName: "drop")
+               .foregroundColor(.blue)
+               .onTapGesture {
+                  showingSheet.toggle()
+               }
+               .sheet(isPresented: $showingSheet) {
+                  SettingsView()
+               }
+            
+         )
       }
-   
    }
    
    struct ContentView_Previews: PreviewProvider {

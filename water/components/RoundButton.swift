@@ -29,7 +29,7 @@ struct RoundButton: View {
                }
             }
             .scaleEffect(tapped ? 1.3 : 1)
-            .animation(.spring(response: 0.4, dampingFraction: 0.6))
+            .animation(tapped ? .spring(response: 0.4, dampingFraction: 0.6) : .none)
          Text(text).foregroundColor(.white).font(.callout)
       }
    }

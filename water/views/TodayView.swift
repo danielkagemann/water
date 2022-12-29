@@ -28,8 +28,8 @@ struct TodayView: View {
              }
              .onDelete(perform: $waterList.remove)
           }
-          .listRowSeparator(.hidden)
           .listStyle(.plain)
+          .listRowSeparator(.hidden)
        }
     }
 }

@@ -18,6 +18,7 @@
 		9B31E021295DFD230063337A /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E018295DFD230063337A /* Water.swift */; };
 		9B31E022295DFD230063337A /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E01A295DFD230063337A /* TimeFormat.swift */; };
 		9B31E023295DFD230063337A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E01C295DFD230063337A /* RoundButton.swift */; };
+		9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		9B31E018295DFD230063337A /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		9B31E01A295DFD230063337A /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		9B31E01C295DFD230063337A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				9B31E012295DFD230063337A /* SplashScreenView.swift */,
 				9B31E013295DFD230063337A /* TodayView.swift */,
 				9B31E014295DFD230063337A /* ContentView.swift */,
+				9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B31E023295DFD230063337A /* RoundButton.swift in Sources */,
+				9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */,
 				9B31E022295DFD230063337A /* TimeFormat.swift in Sources */,
 				9B31DFF7295DFBA80063337A /* waterApp.swift in Sources */,
 				9B31E021295DFD230063337A /* Water.swift in Sources */,
