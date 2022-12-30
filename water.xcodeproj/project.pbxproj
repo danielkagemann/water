@@ -13,7 +13,7 @@
 		9B31E006295DFC420063337A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9B31E005295DFC420063337A /* Realm */; };
 		9B31E008295DFC420063337A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B31E007295DFC420063337A /* RealmSwift */; };
 		9B31E01D295DFD230063337A /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E012295DFD230063337A /* SplashScreenView.swift */; };
-		9B31E01E295DFD230063337A /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E013295DFD230063337A /* TodayView.swift */; };
+		9B31E01E295DFD230063337A /* DetailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E013295DFD230063337A /* DetailListView.swift */; };
 		9B31E01F295DFD230063337A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E014295DFD230063337A /* ContentView.swift */; };
 		9B31E021295DFD230063337A /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E018295DFD230063337A /* Water.swift */; };
 		9B31E022295DFD230063337A /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E01A295DFD230063337A /* TimeFormat.swift */; };
@@ -27,7 +27,7 @@
 		9B31DFFA295DFBA90063337A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B31DFFD295DFBA90063337A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B31E012295DFD230063337A /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		9B31E013295DFD230063337A /* TodayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		9B31E013295DFD230063337A /* DetailListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailListView.swift; sourceTree = "<group>"; };
 		9B31E014295DFD230063337A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B31E018295DFD230063337A /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		9B31E01A295DFD230063337A /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				9B31E012295DFD230063337A /* SplashScreenView.swift */,
-				9B31E013295DFD230063337A /* TodayView.swift */,
+				9B31E013295DFD230063337A /* DetailListView.swift */,
 				9B31E014295DFD230063337A /* ContentView.swift */,
 				9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */,
 			);
@@ -203,7 +203,7 @@
 				9B31E022295DFD230063337A /* TimeFormat.swift in Sources */,
 				9B31DFF7295DFBA80063337A /* waterApp.swift in Sources */,
 				9B31E021295DFD230063337A /* Water.swift in Sources */,
-				9B31E01E295DFD230063337A /* TodayView.swift in Sources */,
+				9B31E01E295DFD230063337A /* DetailListView.swift in Sources */,
 				9B31E01F295DFD230063337A /* ContentView.swift in Sources */,
 				9B31E01D295DFD230063337A /* SplashScreenView.swift in Sources */,
 			);

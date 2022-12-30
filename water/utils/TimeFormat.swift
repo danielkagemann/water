@@ -28,6 +28,10 @@ func calcTimeSince(date: Date) -> String {
    }
 }
 
+func onlyDate(date: Date) -> String {
+   return date.formatted(.dateTime.day().month().year())
+}
+
 func onlyTime(date: Date) -> String {
    return date.formatted(
       Date.FormatStyle()
@@ -37,15 +41,3 @@ func onlyTime(date: Date) -> String {
    )
 }
 
-func isToday() -> NSPredicate {
-   let cal = Calendar.current
-   
-   var today: Date = Date()
-
-   //testDate being the date you want to check for
-   let startDate = cal.startOfDay(for: today)
-   let endDate = cal.date(byAdding: .day, value: 1, to: startDate)
-
-   //assuming date is the name of your Core Data attribute
-   return NSPredicate(format: "date >= %@ AND date < %@", startDate as CVarArg, endDate! as CVarArg)
-}

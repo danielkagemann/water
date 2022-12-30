@@ -9,19 +9,41 @@ import SwiftUI
 import RealmSwift
 
 struct ContentView: View {
-   
-   @ObservedResults(Water.self, filter: isToday()) var waterList
-   
-   @State private var showingSheet = false
-   
+   // the daily goal
    var goal: Int = 2000
    
-   private func valueForToday () -> Int {
-      return waterList.reduce(0, { acc, curr in
+   // starting always today
+   @State var selectedDate: Date = Date()
+   
+   // get ALL results from realm
+   @ObservedResults(Water.self) var waterList
+   
+   // show goal sheet
+   @State private var showingSheet = false
+   
+   // filter ALL results by selected date (state)
+   var filteredWater: [Water] {
+      let cal = Calendar.current
+      
+      //testDate being the date you want to check for
+      let startDate = cal.startOfDay(for: selectedDate)
+      let endDate = cal.date(byAdding: .day, value: 1, to: startDate)!
+      
+      let filtered = waterList.where {
+         $0.date >= startDate && $0.date < endDate
+      }
+      
+      return filtered.map { $0 }
+   }
+   
+   // get value for selected day
+   private func totalAmount () -> Int {
+      return filteredWater.reduce(0, { acc, curr in
          acc + curr.amount
       })
    }
    
+   // add new item to list
    private func add (amount:Int) -> Void {
       let item = Water(amount: amount)
       $waterList.append(item)
@@ -32,11 +54,11 @@ struct ContentView: View {
          VStack {
             // show current consumption
             VStack {
-               HStack (spacing:0) {
-                  Text("\(valueForToday())").font(.system(size: 64, weight: .bold)).animation(.spring())
+               HStack {
+                  Text("\(totalAmount())").font(.system(size: 64, weight: .bold)).animation(.spring())
                   Text("ml").font(.system(size: 64, weight: .light))
                }
-               Text(valueForToday() > goal ? "Tagesziel erreicht (+\(valueForToday()-goal)ml)" : "noch \(goal - valueForToday())ml")
+               Text(totalAmount() > goal ? "Tagesziel erreicht (+\(totalAmount()-goal)ml)" : "noch \(goal - totalAmount())ml")
                
                HStack {
                   RoundButton(text: "100", action: {
@@ -49,15 +71,15 @@ struct ContentView: View {
                      self.add(amount: 500)
                   })
                }
-               
             }
+            .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
             
-            TodayView()
+            DetailListView(date: selectedDate, list: filteredWater)
          }
          .navigationBarItems(
             leading:
                Image(systemName: "drop")
-               .foregroundColor(.blue)
+               .foregroundColor(.primary)
                .onTapGesture {
                   showingSheet.toggle()
                }

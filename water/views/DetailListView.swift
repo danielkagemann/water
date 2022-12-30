@@ -8,15 +8,16 @@
 import SwiftUI
 import RealmSwift
 
-struct TodayView: View {
+struct DetailListView: View {
    
-   @ObservedResults(Water.self, filter: isToday()) var waterList
+   var date: Date
+   var list: [Water]
    
     var body: some View {
        VStack (alignment: .leading) {
           List {
-             Text("Heute").bold()
-             ForEach (waterList, id: \.id) { water in
+             Text(onlyDate(date: date)).bold()
+             ForEach (list, id: \.id) { water in
                 HStack {
                       Image(systemName: water.amount == 100 ? "drop" : "wineglass").foregroundColor(.blue).padding()
                       Text("\(water.amount)") + Text("ml").bold()
@@ -26,16 +27,20 @@ struct TodayView: View {
                       .font(.callout)
                 }
              }
-             .onDelete(perform: $waterList.remove)
+             .onDelete(perform: { id in
+                print ("you killed id \(id)")
+             })
+             // $waterList.remove
           }
+          .listSectionSeparator(.hidden)
           .listStyle(.plain)
           .listRowSeparator(.hidden)
        }
     }
 }
 
-struct TodayView_Previews: PreviewProvider {
+struct DetailListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayView()
+       DetailListView(date: Date(), list: [])
     }
 }
