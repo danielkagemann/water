@@ -12,7 +12,7 @@ import SwiftDate
 struct DetailListView: View {
    
    var list: [Water]
-   
+   var action: (_ uuid: ObjectId) ->Void
    
    var body: some View {
       VStack (alignment: .leading) {
@@ -32,6 +32,7 @@ struct DetailListView: View {
                if id != -1 {
                   let uuid = list[id].id
                   print ("you killed element in row \(id) with uuid \(uuid)")
+                  action(uuid)
                }
             })
             // $waterList.remove
@@ -46,6 +47,6 @@ struct DetailListView: View {
 
 struct DetailListView_Previews: PreviewProvider {
    static var previews: some View {
-      DetailListView(list: [Water(amount: 100), Water(amount: 200)])
+      DetailListView(list: [Water(amount: 100), Water(amount: 200)], action: {uuid in })
    }
 }

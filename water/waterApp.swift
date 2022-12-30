@@ -15,7 +15,7 @@ struct waterApp: SwiftUI.App {
          SplashScreenView()
             .onAppear {
                print (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
-               UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+               // UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
             }
       }
    }

@@ -55,11 +55,7 @@ struct ContentView: View {
          VStack {
             // show current consumption
             VStack {
-               HStack {
-                  
-                  
-               }
-               
+              
                HStack {
                   Text("\(totalAmount())").font(.system(size: 64, weight: .bold)).animation(.spring())
                   Text("ml").font(.system(size: 64, weight: .light))
@@ -92,7 +88,14 @@ struct ContentView: View {
             }
             .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
             
-            DetailListView(list: filteredWater)
+            DetailListView(list: filteredWater, action: {uuid in
+               // find uuid in list
+               let match = waterList.where {
+                  $0.id == uuid
+               }
+               
+               $waterList.remove(match.first!)
+            })
          }
          .navigationTitle(smartDate(date: selectedDate))
          .navigationBarItems(
