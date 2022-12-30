@@ -55,24 +55,25 @@ struct ContentView: View {
          VStack {
             // show current consumption
             VStack {
-              
+
+               // display liquid with some data
                AmountView(value: totalAmount(), goal: goal)
                
-               
-               HStack {
+               // action panel
+               HStack (alignment: .center){
                   Button(action: {
                      selectedDate = selectedDate - 1.days
                   }, label: {
                      Image(systemName: "chevron.backward")
                   }).padding()
-                  
-                  RoundButton(text: "100", action: {
+
+                  IconButton(icon: "image.drop", text: "100", action: {
                      self.add(amount: 100)
                   })
-                  RoundButton(text: "200", action: {
-                     self.add(amount: 250)
+                  IconButton(icon: "image.glas", text: "200", action: {
+                     self.add(amount: 200)
                   })
-                  RoundButton(text: "500", action: {
+                  IconButton(icon: "image.bottle", text: "500", action: {
                      self.add(amount: 500)
                   })
                   
@@ -85,6 +86,7 @@ struct ContentView: View {
             }
             .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
             
+            // the list
             DetailListView(list: filteredWater, action: {uuid in
                // find uuid in list
                let match = waterList.where {

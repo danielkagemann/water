@@ -14,12 +14,22 @@ struct DetailListView: View {
    var list: [Water]
    var action: (_ uuid: ObjectId) ->Void
    
+   func mapAmountToImage (value: Int) -> String {
+      if value == 100 {
+         return "image.drop"
+      }
+      if  value == 200 {
+         return "image.glas"
+      }
+      return "image.bottle"
+   }
+   
    var body: some View {
       VStack (alignment: .leading) {
          List {
             ForEach (list, id: \.id) { water in
                HStack {
-                  Image(systemName: water.amount == 100 ? "drop" : "wineglass").foregroundColor(.blue).padding()
+                  Image(mapAmountToImage(value: water.amount)).padding()
                   Text("\(water.amount)") + Text("ml").bold()
                   Spacer()
                   Text(water.date.toFormat("HH:mm"))
