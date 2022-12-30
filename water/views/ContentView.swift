@@ -56,11 +56,8 @@ struct ContentView: View {
             // show current consumption
             VStack {
               
-               HStack {
-                  Text("\(totalAmount())").font(.system(size: 64, weight: .bold)).animation(.spring())
-                  Text("ml").font(.system(size: 64, weight: .light))
-               }
-               Text(totalAmount() > goal ? "Tagesziel erreicht (+\(totalAmount()-goal)ml)" : "noch \(goal - totalAmount())ml")
+               AmountView(value: totalAmount(), goal: goal)
+               
                
                HStack {
                   Button(action: {

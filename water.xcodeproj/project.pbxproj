@@ -20,6 +20,8 @@
 		9B31E026295F34540063337A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 9B31E025295F34540063337A /* SwiftDate */; };
 		9B31E02C295F4DBA0063337A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E02B295F4DBA0063337A /* DateHelper.swift */; };
 		9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */; };
+		9BECECC7295F6F8F00CA8DF2 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 9BECECC6295F6F8F00CA8DF2 /* Liquid */; };
+		9BECECC9295F701200CA8DF2 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC8295F701200CA8DF2 /* AmountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		9B31E01C295DFD230063337A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9B31E02B295F4DBA0063337A /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9BECECC8295F701200CA8DF2 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			files = (
 				9B31E008295DFC420063337A /* RealmSwift in Frameworks */,
 				9B31E006295DFC420063337A /* Realm in Frameworks */,
+				9BECECC7295F6F8F00CA8DF2 /* Liquid in Frameworks */,
 				9B31E026295F34540063337A /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +99,7 @@
 				9B31E013295DFD230063337A /* DetailListView.swift */,
 				9B31E014295DFD230063337A /* ContentView.swift */,
 				9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */,
+				9BECECC8295F701200CA8DF2 /* AmountView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				9B31E005295DFC420063337A /* Realm */,
 				9B31E007295DFC420063337A /* RealmSwift */,
 				9B31E025295F34540063337A /* SwiftDate */,
+				9BECECC6295F6F8F00CA8DF2 /* Liquid */,
 			);
 			productName = water;
 			productReference = 9B31DFF3295DFBA80063337A /* water.app */;
@@ -175,6 +181,7 @@
 			packageReferences = (
 				9B31E004295DFC420063337A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				9B31E024295F34540063337A /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				9BECECC5295F6F8F00CA8DF2 /* XCRemoteSwiftPackageReference "liquid" */,
 			);
 			productRefGroup = 9B31DFF4295DFBA80063337A /* Products */;
 			projectDirPath = "";
@@ -204,6 +211,7 @@
 			files = (
 				9B31E023295DFD230063337A /* RoundButton.swift in Sources */,
 				9B31E02C295F4DBA0063337A /* DateHelper.swift in Sources */,
+				9BECECC9295F701200CA8DF2 /* AmountView.swift in Sources */,
 				9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */,
 				9B31DFF7295DFBA80063337A /* waterApp.swift in Sources */,
 				9B31E021295DFD230063337A /* Water.swift in Sources */,
@@ -434,6 +442,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		9BECECC5295F6F8F00CA8DF2 /* XCRemoteSwiftPackageReference "liquid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maustinstar/liquid.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -451,6 +467,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B31E024295F34540063337A /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		9BECECC6295F6F8F00CA8DF2 /* Liquid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BECECC5295F6F8F00CA8DF2 /* XCRemoteSwiftPackageReference "liquid" */;
+			productName = Liquid;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

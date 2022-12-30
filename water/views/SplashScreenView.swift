@@ -21,13 +21,13 @@ struct SplashScreenView: View {
             VStack {
                Image("waterlogo")
                   .resizable()
-                  .frame(width:200, height:200/0.72)
+                  .frame(width:200, height:250)
             }
             .scaleEffect(size)
             .opacity(opacity)
             .onAppear {
                withAnimation(.easeInOut(duration: 1.2)) {
-                  size = 1.5
+                  size = 0.9
                   opacity = 1.0
                }
             }
