@@ -22,19 +22,18 @@ struct SplashScreenView: View {
                Image("waterlogo")
                   .resizable()
                   .frame(width:200, height:200/0.72)
-               Text("wasser").fontWeight(.light)
             }
             .scaleEffect(size)
             .opacity(opacity)
             .onAppear {
-               withAnimation(.easeIn(duration: 1.2)) {
-                  size = 0.9
+               withAnimation(.easeInOut(duration: 1.2)) {
+                  size = 1.5
                   opacity = 1.0
                }
             }
          }
          .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: {
                isActive = true
             })
          }

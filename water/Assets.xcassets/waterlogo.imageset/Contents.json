@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "waterlogo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "waterlogo-icon.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

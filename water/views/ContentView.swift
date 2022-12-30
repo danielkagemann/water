@@ -56,12 +56,23 @@ struct ContentView: View {
             // show current consumption
             VStack {
                HStack {
+                  
+                  
+               }
+               
+               HStack {
                   Text("\(totalAmount())").font(.system(size: 64, weight: .bold)).animation(.spring())
                   Text("ml").font(.system(size: 64, weight: .light))
                }
                Text(totalAmount() > goal ? "Tagesziel erreicht (+\(totalAmount()-goal)ml)" : "noch \(goal - totalAmount())ml")
                
                HStack {
+                  Button(action: {
+                     selectedDate = selectedDate - 1.days
+                  }, label: {
+                     Image(systemName: "chevron.backward")
+                  }).padding()
+                  
                   RoundButton(text: "100", action: {
                      self.add(amount: 100)
                   })
@@ -71,13 +82,19 @@ struct ContentView: View {
                   RoundButton(text: "500", action: {
                      self.add(amount: 500)
                   })
+                  
+                  Button(action: {
+                     selectedDate = selectedDate + 1.days
+                  }, label: {
+                     Image(systemName: "chevron.forward")
+                  }).padding()
                }
             }
             .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
             
             DetailListView(list: filteredWater)
          }
-         .navigationTitle(selectedDate.compare(.isToday) ? "Heute" : selectedDate.toFormat("dd.MM.yyyy"))
+         .navigationTitle(smartDate(date: selectedDate))
          .navigationBarItems(
             trailing:
                Image(systemName: "bell")
