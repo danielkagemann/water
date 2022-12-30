@@ -17,6 +17,15 @@
         "branch" : "master",
         "revision" : "cc847d103a190ea5aa3786bab67d44f3436f261f"
       }
+    },
+    {
+      "identity" : "swiftdate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftDate.git",
+      "state" : {
+        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
+        "version" : "7.0.0"
+      }
     }
   ],
   "version" : 2

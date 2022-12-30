@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import SwiftDate
 
 struct ContentView: View {
    // the daily goal
@@ -74,19 +75,19 @@ struct ContentView: View {
             }
             .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
             
-            DetailListView(date: selectedDate, list: filteredWater)
+            DetailListView(list: filteredWater)
          }
+         .navigationTitle(selectedDate.compare(.isToday) ? "Heute" : selectedDate.toFormat("dd.MM.yyyy"))
          .navigationBarItems(
-            leading:
-               Image(systemName: "drop")
-               .foregroundColor(.primary)
+            trailing:
+               Image(systemName: "bell")
+               .foregroundColor(.blue)
                .onTapGesture {
                   showingSheet.toggle()
                }
                .sheet(isPresented: $showingSheet) {
                   SettingsView()
                }
-            
          )
       }
    }

@@ -16,8 +16,8 @@
 		9B31E01E295DFD230063337A /* DetailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E013295DFD230063337A /* DetailListView.swift */; };
 		9B31E01F295DFD230063337A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E014295DFD230063337A /* ContentView.swift */; };
 		9B31E021295DFD230063337A /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E018295DFD230063337A /* Water.swift */; };
-		9B31E022295DFD230063337A /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E01A295DFD230063337A /* TimeFormat.swift */; };
 		9B31E023295DFD230063337A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31E01C295DFD230063337A /* RoundButton.swift */; };
+		9B31E026295F34540063337A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 9B31E025295F34540063337A /* SwiftDate */; };
 		9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,6 @@
 		9B31E013295DFD230063337A /* DetailListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailListView.swift; sourceTree = "<group>"; };
 		9B31E014295DFD230063337A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B31E018295DFD230063337A /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
-		9B31E01A295DFD230063337A /* TimeFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		9B31E01C295DFD230063337A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,6 +41,7 @@
 			files = (
 				9B31E008295DFC420063337A /* RealmSwift in Frameworks */,
 				9B31E006295DFC420063337A /* Realm in Frameworks */,
+				9B31E026295F34540063337A /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +69,6 @@
 			children = (
 				9B31E01B295DFD230063337A /* components */,
 				9B31E015295DFD230063337A /* data */,
-				9B31E019295DFD230063337A /* utils */,
 				9B31E011295DFD230063337A /* views */,
 				9B31DFF6295DFBA80063337A /* waterApp.swift */,
 				9B31DFFA295DFBA90063337A /* Assets.xcassets */,
@@ -105,14 +104,6 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-		9B31E019295DFD230063337A /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				9B31E01A295DFD230063337A /* TimeFormat.swift */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
 		9B31E01B295DFD230063337A /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +131,7 @@
 			packageProductDependencies = (
 				9B31E005295DFC420063337A /* Realm */,
 				9B31E007295DFC420063337A /* RealmSwift */,
+				9B31E025295F34540063337A /* SwiftDate */,
 			);
 			productName = water;
 			productReference = 9B31DFF3295DFBA80063337A /* water.app */;
@@ -171,6 +163,7 @@
 			mainGroup = 9B31DFEA295DFBA80063337A;
 			packageReferences = (
 				9B31E004295DFC420063337A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				9B31E024295F34540063337A /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 9B31DFF4295DFBA80063337A /* Products */;
 			projectDirPath = "";
@@ -200,7 +193,6 @@
 			files = (
 				9B31E023295DFD230063337A /* RoundButton.swift in Sources */,
 				9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */,
-				9B31E022295DFD230063337A /* TimeFormat.swift in Sources */,
 				9B31DFF7295DFBA80063337A /* waterApp.swift in Sources */,
 				9B31E021295DFD230063337A /* Water.swift in Sources */,
 				9B31E01E295DFD230063337A /* DetailListView.swift in Sources */,
@@ -416,6 +408,14 @@
 				kind = branch;
 			};
 		};
+		9B31E024295F34540063337A /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -428,6 +428,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B31E004295DFC420063337A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		9B31E025295F34540063337A /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B31E024295F34540063337A /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,22 +7,21 @@
 
 import SwiftUI
 import RealmSwift
+import SwiftDate
 
 struct DetailListView: View {
    
-   var date: Date
    var list: [Water]
    
     var body: some View {
        VStack (alignment: .leading) {
           List {
-             Text(onlyDate(date: date)).bold()
              ForEach (list, id: \.id) { water in
                 HStack {
                       Image(systemName: water.amount == 100 ? "drop" : "wineglass").foregroundColor(.blue).padding()
                       Text("\(water.amount)") + Text("ml").bold()
                    Spacer()
-                   Text(onlyTime(date: water.date))
+                   Text(water.date.toFormat("HH:mm"))
                       .foregroundColor(.gray)
                       .font(.callout)
                 }
@@ -41,6 +40,6 @@ struct DetailListView: View {
 
 struct DetailListView_Previews: PreviewProvider {
     static var previews: some View {
-       DetailListView(date: Date(), list: [])
+       DetailListView(list: [Water(amount: 100), Water(amount: 200)])
     }
 }
