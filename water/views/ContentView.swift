@@ -47,7 +47,6 @@ struct ContentView: View {
       let startDate = cal.startOfDay(for: date)
       let endDate = cal.date(byAdding: .day, value: 1, to: startDate)!
       
-     
       let filtered = waterList.where {
          $0.date >= startDate && $0.date < endDate
       }
@@ -82,7 +81,10 @@ struct ContentView: View {
    
    var body: some View {
       NavigationView {
+         
          VStack {
+            GoalView(date: goalFor?.date ?? Date(), value: Double(goalFor?.goal ?? 0))
+            
             // show current consumption
             VStack {
                
