@@ -26,31 +26,38 @@ struct DetailListView: View {
    
    var body: some View {
       VStack (alignment: .leading) {
-         List {
-            ForEach (list, id: \.id) { water in
-               HStack {
-                  Image(mapAmountToImage(value: water.amount)).scaleEffect(0.5)
-                  Text("\(water.amount)") + Text("ml").bold()
-                  Spacer()
-                  Text(water.date.toFormat("HH:mm"))
-                     .foregroundColor(.gray)
-                     .font(.callout)
-               }
+         if list.count == 0 {
+            HStack(alignment: .center) {
+                  
+                  Text("Keine Einträge")
+                  .padding(20)
             }
-            .onDelete(perform: { indexes in
-               let id = indexes.first ?? -1
-               if id != -1 {
-                  let uuid = list[id].id
-                  action(uuid)
+         } else {
+            List {
+               ForEach (list, id: \.id) { water in
+                  HStack {
+                     Image(mapAmountToImage(value: water.amount)).scaleEffect(0.5)
+                     Text("\(water.amount)") + Text("ml").bold()
+                     Spacer()
+                     Text(water.date.toFormat("HH:mm"))
+                        .foregroundColor(.gray)
+                        .font(.callout)
+                  }
                }
-            })
+               .onDelete(perform: { indexes in
+                  let id = indexes.first ?? -1
+                  if id != -1 {
+                     let uuid = list[id].id
+                     action(uuid)
+                  }
+               })
+            }
+            .environment(\.locale, Locale(identifier: "de"))
+            .listStyle(.plain)
+            .listSectionSeparator(.hidden)
+            .listRowSeparator(.hidden)
          }
-         .environment(\.locale, Locale(identifier: "de"))
-         .listStyle(.plain)
-         .listSectionSeparator(.hidden)
-         .listRowSeparator(.hidden)
-      }
-   }
+      }}
 }
 
 struct DetailListView_Previews: PreviewProvider {
