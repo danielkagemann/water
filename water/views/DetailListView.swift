@@ -29,7 +29,7 @@ struct DetailListView: View {
          List {
             ForEach (list, id: \.id) { water in
                HStack {
-                  Image(mapAmountToImage(value: water.amount)).padding()
+                  Image(mapAmountToImage(value: water.amount)).scaleEffect(0.5)
                   Text("\(water.amount)") + Text("ml").bold()
                   Spacer()
                   Text(water.date.toFormat("HH:mm"))
@@ -41,15 +41,13 @@ struct DetailListView: View {
                let id = indexes.first ?? -1
                if id != -1 {
                   let uuid = list[id].id
-                  print ("you killed element in row \(id) with uuid \(uuid)")
                   action(uuid)
                }
             })
-            // $waterList.remove
          }
          .environment(\.locale, Locale(identifier: "de"))
-         .listSectionSeparator(.hidden)
          .listStyle(.plain)
+         .listSectionSeparator(.hidden)
          .listRowSeparator(.hidden)
       }
    }

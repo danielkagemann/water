@@ -38,24 +38,26 @@ struct ContentView: View {
       return flt.map { $0 }.last
    }
    
-   // filter ALL results by selected date (state)
-   var filteredWater: [Water] {
+   // helper routine to get all water data for given date
+   private func filterWaterForDate (_ date: Date) -> [Water] {
+            
       let cal = Calendar.current
       
       //testDate being the date you want to check for
-      let startDate = cal.startOfDay(for: selectedDate)
+      let startDate = cal.startOfDay(for: date)
       let endDate = cal.date(byAdding: .day, value: 1, to: startDate)!
       
+     
       let filtered = waterList.where {
          $0.date >= startDate && $0.date < endDate
       }
       
-      return filtered.map { $0 }
+      return filtered.sorted(byKeyPath: "date", ascending: false).map { $0 }
    }
    
    // get value for selected day
-   private func totalAmount () -> Int {
-      return filteredWater.reduce(0, { acc, curr in
+   private func totalAmount (_ date: Date) -> Int {
+      return filterWaterForDate(date).reduce(0, { acc, curr in
          acc + curr.amount
       })
    }
@@ -66,14 +68,26 @@ struct ContentView: View {
       $waterList.append(item)
    }
    
+   // get last 5 days from selecteddate
+   var chartData: [Double] {
+      var trend: [Double] = []
+      
+      for num in 0...30 {
+         let val: Double = Double(self.totalAmount(selectedDate - num.days))
+         trend.append(val)
+      }
+      
+      return trend
+   }
+   
    var body: some View {
       NavigationView {
          VStack {
             // show current consumption
             VStack {
-
+               
                // display liquid with some data
-               AmountView(value: totalAmount(), goal: goalFor?.goal ?? 0)
+               AmountView(value: totalAmount(selectedDate), goal: goalFor?.goal ?? 0)
                
                // action panel
                HStack (alignment: .center){
@@ -83,14 +97,14 @@ struct ContentView: View {
                      Image(systemName: "chevron.backward")
                   }).padding()
 
+                  IconButton(icon: "image.drop", text: "20", action: {
+                     self.add(amount: 20)
+                  })
                   IconButton(icon: "image.drop", text: "100", action: {
                      self.add(amount: 100)
                   })
                   IconButton(icon: "image.glas", text: "200", action: {
                      self.add(amount: 200)
-                  })
-                  IconButton(icon: "image.bottle", text: "500", action: {
-                     self.add(amount: 500)
                   })
                   
                   Button(action: {
@@ -100,17 +114,21 @@ struct ContentView: View {
                   }).padding()
                }
             }
-            .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
-         
-            // the list
-            DetailListView(list: filteredWater, action: {uuid in
-               // find uuid in list
-               let match = waterList.where {
-                  $0.id == uuid
-               }
+            
+            VStack {
                
-               $waterList.remove(match.first!)
-            })
+               // the list
+               DetailListView(list: filterWaterForDate(selectedDate), action: {uuid in
+                  // find uuid in list
+                  let match = waterList.where {
+                     $0.id == uuid
+                  }
+                  
+                  $waterList.remove(match.first!)
+               })
+               Spacer()
+               ChartView(data: chartData)
+            }
          }
          .navigationTitle(smartDate(date: selectedDate))
          .navigationBarItems(
