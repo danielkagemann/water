@@ -10,8 +10,6 @@ import RealmSwift
 import SwiftDate
 
 struct ContentView: View {
-   // the daily goal
-   var goal: Int = 2000
    
    // starting always today
    @State var selectedDate: Date = Date()
@@ -19,8 +17,26 @@ struct ContentView: View {
    // get ALL results from realm
    @ObservedResults(Water.self) var waterList
    
-   // show goal sheet
+   // get all defined GOALS
+   @ObservedResults(Goal.self, sortDescriptor: SortDescriptor(keyPath: "date")) var goalList
+   
+   // show settings sheet
    @State private var showingSheet = false
+      
+   // get goal for selected date
+   var goalFor: Goal? {
+      let cal = Calendar.current
+      
+      //testDate being the date you want to check for
+      let startDate = cal.startOfDay(for: selectedDate)
+      let endDate = cal.date(byAdding: .day, value: 1, to: startDate)!
+      
+      // startdate and enddate is selecteddate
+      let flt = goalList.where {
+         $0.date <= endDate
+      }
+      return flt.map { $0 }.last
+   }
    
    // filter ALL results by selected date (state)
    var filteredWater: [Water] {
@@ -57,7 +73,7 @@ struct ContentView: View {
             VStack {
 
                // display liquid with some data
-               AmountView(value: totalAmount(), goal: goal)
+               AmountView(value: totalAmount(), goal: goalFor?.goal ?? 0)
                
                // action panel
                HStack (alignment: .center){
@@ -85,7 +101,7 @@ struct ContentView: View {
                }
             }
             .frame(width: .infinity, height: UIScreen.main.bounds.height/2)
-            
+         
             // the list
             DetailListView(list: filteredWater, action: {uuid in
                // find uuid in list
@@ -99,7 +115,7 @@ struct ContentView: View {
          .navigationTitle(smartDate(date: selectedDate))
          .navigationBarItems(
             trailing:
-               Image(systemName: "bell")
+               Image(systemName: "gear")
                .foregroundColor(.blue)
                .onTapGesture {
                   showingSheet.toggle()
