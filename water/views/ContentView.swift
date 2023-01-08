@@ -22,6 +22,9 @@ struct ContentView: View {
    
    // show settings sheet
    @State private var showingSheet = false
+   
+   // show bottom
+   @State private var bottomSheet = false
       
    // get goal for selected date
    var goalFor: Goal? {
@@ -81,13 +84,11 @@ struct ContentView: View {
    
    var body: some View {
       NavigationView {
-         
          VStack {
-            GoalView(date: goalFor?.date ?? Date(), value: Double(goalFor?.goal ?? 0))
-            
             // show current consumption
             VStack {
-               
+               GoalView(date: goalFor?.date ?? Date(), value: Double(goalFor?.goal ?? 0))
+
                // display liquid with some data
                AmountView(value: totalAmount(selectedDate), goal: goalFor?.goal ?? 0)
                
@@ -99,14 +100,10 @@ struct ContentView: View {
                      Image(systemName: "chevron.backward")
                   }).padding()
 
-                  IconButton(icon: "image.drop", text: "20", action: {
-                     self.add(amount: 20)
-                  })
-                  IconButton(icon: "image.drop", text: "100", action: {
-                     self.add(amount: 100)
-                  })
-                  IconButton(icon: "image.glas", text: "200", action: {
-                     self.add(amount: 200)
+                  Button(action: {
+                     bottomSheet.toggle()
+                  }, label: {
+                     Text("Hinzufügen").bold().font(.headline)
                   })
                   
                   Button(action: {
@@ -118,7 +115,6 @@ struct ContentView: View {
             }
             
             VStack {
-               
                // the list
                DetailListView(list: filterWaterForDate(selectedDate), action: {uuid in
                   // find uuid in list
@@ -142,6 +138,11 @@ struct ContentView: View {
                }
                .sheet(isPresented: $showingSheet) {
                   SettingsView()
+               }
+               .sheet(isPresented: $bottomSheet) {
+                  WaterBottomSheet(action: {value in
+                     self.add(amount: Int(value))
+                  })
                }
          )
       }

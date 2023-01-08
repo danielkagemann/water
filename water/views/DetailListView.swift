@@ -15,10 +15,10 @@ struct DetailListView: View {
    var action: (_ uuid: ObjectId) ->Void
    
    func mapAmountToImage (value: Int) -> String {
-      if value == 100 {
+      if value < 100 {
          return "image.drop"
       }
-      if  value == 200 {
+      if  value < 200 {
          return "image.glas"
       }
       return "image.bottle"
@@ -28,7 +28,6 @@ struct DetailListView: View {
       VStack (alignment: .leading) {
          if list.count == 0 {
             HStack(alignment: .center) {
-                  
                   Text("Keine Einträge")
                   .padding(20)
             }
@@ -36,7 +35,9 @@ struct DetailListView: View {
             List {
                ForEach (list, id: \.id) { water in
                   HStack {
-                     Image(mapAmountToImage(value: water.amount)).scaleEffect(0.5)
+                     Image(mapAmountToImage(value: water.amount))
+                        .resizable()
+                        .frame(width: 24, height: 24)
                      Text("\(water.amount)") + Text("ml").bold()
                      Spacer()
                      Text(water.date.toFormat("HH:mm"))

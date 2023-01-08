@@ -23,6 +23,9 @@
 		9BCE9EF2296A127A00A42A8D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9BCE9EF1296A127A00A42A8D /* SwiftUICharts */; };
 		9BCE9EF6296A14BD00A42A8D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE9EF5296A14BD00A42A8D /* ChartView.swift */; };
 		9BCE9EF8296A265E00A42A8D /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE9EF7296A265E00A42A8D /* GoalView.swift */; };
+		9BCE9EFA296ACD7D00A42A8D /* WaterBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE9EF9296ACD7D00A42A8D /* WaterBottomSheet.swift */; };
+		9BCE9EFC296AD63100A42A8D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE9EFB296AD63100A42A8D /* RoundButton.swift */; };
+		9BCE9EFF296AE76600A42A8D /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 9BCE9EFE296AE76600A42A8D /* BottomSheet */; };
 		9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */; };
 		9BECECC7295F6F8F00CA8DF2 /* Liquid in Frameworks */ = {isa = PBXBuildFile; productRef = 9BECECC6295F6F8F00CA8DF2 /* Liquid */; };
 		9BECECC9295F701200CA8DF2 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BECECC8295F701200CA8DF2 /* AmountView.swift */; };
@@ -43,6 +46,8 @@
 		9BCE9EEA2969B1C800A42A8D /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		9BCE9EF5296A14BD00A42A8D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		9BCE9EF7296A265E00A42A8D /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		9BCE9EF9296ACD7D00A42A8D /* WaterBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterBottomSheet.swift; sourceTree = "<group>"; };
+		9BCE9EFB296AD63100A42A8D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		9BECECC3295E27AA00CA8DF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9BECECC8295F701200CA8DF2 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +59,7 @@
 			files = (
 				9B31E008295DFC420063337A /* RealmSwift in Frameworks */,
 				9B31E006295DFC420063337A /* Realm in Frameworks */,
+				9BCE9EFF296AE76600A42A8D /* BottomSheet in Frameworks */,
 				9BECECC7295F6F8F00CA8DF2 /* Liquid in Frameworks */,
 				9BCE9EF2296A127A00A42A8D /* SwiftUICharts in Frameworks */,
 				9B31E026295F34540063337A /* SwiftDate in Frameworks */,
@@ -129,6 +135,8 @@
 				9B31E01C295DFD230063337A /* IconButton.swift */,
 				9BCE9EF5296A14BD00A42A8D /* ChartView.swift */,
 				9BCE9EF7296A265E00A42A8D /* GoalView.swift */,
+				9BCE9EF9296ACD7D00A42A8D /* WaterBottomSheet.swift */,
+				9BCE9EFB296AD63100A42A8D /* RoundButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 				9BECECC6295F6F8F00CA8DF2 /* Liquid */,
 				9BECECCB295F74B500CA8DF2 /* SPConfetti */,
 				9BCE9EF1296A127A00A42A8D /* SwiftUICharts */,
+				9BCE9EFE296AE76600A42A8D /* BottomSheet */,
 			);
 			productName = water;
 			productReference = 9B31DFF3295DFBA80063337A /* water.app */;
@@ -199,6 +208,7 @@
 				9BECECC5295F6F8F00CA8DF2 /* XCRemoteSwiftPackageReference "liquid" */,
 				9BECECCA295F74B500CA8DF2 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 				9BCE9EF0296A127A00A42A8D /* XCRemoteSwiftPackageReference "ChartView" */,
+				9BCE9EFD296AE76600A42A8D /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 9B31DFF4295DFBA80063337A /* Products */;
 			projectDirPath = "";
@@ -228,11 +238,13 @@
 			files = (
 				9B31E023295DFD230063337A /* IconButton.swift in Sources */,
 				9B31E02C295F4DBA0063337A /* DateHelper.swift in Sources */,
+				9BCE9EFC296AD63100A42A8D /* RoundButton.swift in Sources */,
 				9BECECC9295F701200CA8DF2 /* AmountView.swift in Sources */,
 				9BECECC4295E27AA00CA8DF2 /* SettingsView.swift in Sources */,
 				9B31DFF7295DFBA80063337A /* waterApp.swift in Sources */,
 				9B31E021295DFD230063337A /* Water.swift in Sources */,
 				9B31E01E295DFD230063337A /* DetailListView.swift in Sources */,
+				9BCE9EFA296ACD7D00A42A8D /* WaterBottomSheet.swift in Sources */,
 				9BCE9EF8296A265E00A42A8D /* GoalView.swift in Sources */,
 				9BCE9EF6296A14BD00A42A8D /* ChartView.swift in Sources */,
 				9B31E01F295DFD230063337A /* ContentView.swift in Sources */,
@@ -364,7 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"water/Preview Content\"";
 				DEVELOPMENT_TEAM = 3SS9R9J7EU;
 				ENABLE_PREVIEWS = YES;
@@ -395,7 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"water/Preview Content\"";
 				DEVELOPMENT_TEAM = 3SS9R9J7EU;
 				ENABLE_PREVIEWS = YES;
@@ -468,6 +480,14 @@
 				version = "2.0.0-beta.2";
 			};
 		};
+		9BCE9EFD296AE76600A42A8D /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		9BECECC5295F6F8F00CA8DF2 /* XCRemoteSwiftPackageReference "liquid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maustinstar/liquid.git";
@@ -506,6 +526,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BCE9EF0296A127A00A42A8D /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		9BCE9EFE296AE76600A42A8D /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BCE9EFD296AE76600A42A8D /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 		9BECECC6295F6F8F00CA8DF2 /* Liquid */ = {
 			isa = XCSwiftPackageProductDependency;

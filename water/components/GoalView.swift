@@ -13,13 +13,14 @@ struct GoalView: View {
    var value: Double
    
    var body: some View {
-      VStack(alignment: .leading) {
+      HStack {
          if value == 0 {
             Text("noch keine Tagesmenge angegeben")
          } else {
             Text("seit \(date.toFormat("dd.MM.yyyy")) Tagesmenge \(Int(value))ml")
          }
-      }
+         Spacer()
+      }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
    }
 }
 
